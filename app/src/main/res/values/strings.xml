@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Notesculture</string>
+    <string name="title_activity_otp">ActivityOtp</string>
 </resources>

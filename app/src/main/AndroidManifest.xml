@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.randhir.notesculture">
+    package="com.app.notesculture">
 
     <application
         android:allowBackup="true"
@@ -16,7 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SpalshActivity"></activity>
+        <activity android:name=".SpalshActivity" />
+        <activity android:name="com.app.notesculture.view.ActivitySplash" />
+        <activity android:name="com.app.notesculture.view.ActivityLogin" />
+        <activity android:name="com.app.notesculture.view.ActivityUserProfile" />
+        <activity
+            android:name="com.app.notesculture.view.ActivityOtp"
+            android:label="@string/title_activity_otp"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
