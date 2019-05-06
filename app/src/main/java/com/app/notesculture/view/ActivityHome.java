@@ -5,12 +5,11 @@ import android.os.Bundle;
 
 import com.app.notesculture.R;
 
-
-public class ActivityLogin extends AppCompatActivity {
+public class ActivityHome extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.activity_home);
     }
 }
