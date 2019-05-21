@@ -1,11 +1,145 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.app.notesculture.view.ActivityLogin">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</android.support.constraint.ConstraintLayout>
+    <data>
+
+        <variable
+            name="LoginViewModel"
+            type="com.app.notesculture.viewmodel.LoginViewModel" />
+
+       <!-- <variable
+            name="ActivityLogin"
+            type="com.app.notesculture.view.ActivityLogin" />-->
+    </data>
+
+    <RelativeLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@drawable/main_background"
+        tools:context=".view.ActivityLogin">
+
+
+        <LinearLayout
+            android:id="@+id/linear_layout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="70dp"
+                android:src="@drawable/logo" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:fontFamily="@font/sf_ui_display_medium"
+                android:gravity="center"
+                android:text="Notesculture"
+                android:textColor="#563566"
+                android:textSize="22dp"
+                android:textStyle="normal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout1"
+            android:layout_marginTop="30dp"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/edPhoneNo"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:maxLength="10"
+                android:backgroundTint="@color/bg_edlogin_line"
+                android:drawableLeft="@drawable/ic_phone_in_talk_black_24dp"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/sf_ui_display_medium"
+                android:hint="Phone Number"
+                android:textColorHint="@color/bg_edlogin_line"
+                android:inputType="number"
+                android:text="@={LoginViewModel.PhoneNo}"
+                android:textColor="@color/bg_edlogin_line"/>
+
+
+            <EditText
+                android:id="@+id/edPassword"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="40dp"
+                android:layout_marginRight="40dp"
+                android:backgroundTint="@color/bg_edlogin_line"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
+                android:drawablePadding="5dp"
+                android:fontFamily="@font/sf_ui_display_medium"
+                android:hint="Password"
+                android:maxLength="20"
+                android:textColorHint="@color/bg_edlogin_line"
+                android:inputType="textPassword"
+                android:text="@={LoginViewModel.Password}"
+                android:textColor="@color/bg_edlogin_line" />
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="57dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="57dp"
+                android:background="@drawable/button_background"
+                android:fontFamily="@font/sf_ui_display_medium"
+                android:onClick="@{(v) -> LoginViewModel.onLoginClick(v)}"
+                android:padding="5dp"
+                android:text="Next"
+                android:textColor="#ffffff"
+                android:textSize="16dp" />
+
+            <TextView
+                android:id="@+id/txtForgetPass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/sf_ui_display_medium"
+                android:gravity="center"
+                android:onClick="@{(v) -> LoginViewModel.onForgetClick(v)}"
+                android:padding="5dp"
+                android:text="Forget Password ?"
+                android:textColor="@color/bg_edlogin_line"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/linear_layout2"
+            android:layout_alignParentBottom="true">
+
+            <TextView
+                android:id="@+id/txtSignUp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_marginBottom="20dp"
+                android:fontFamily="@font/sf_ui_display_medium"
+                android:gravity="center"
+                android:onClick="@{(v) -> LoginViewModel.onSignClick(v)}"
+
+                android:text="@string/register_now"
+                android:textColor="@color/bg_edlogin_line" />
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

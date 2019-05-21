@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="SubjectDetailViewModel"
+            type="com.app.notesculture.viewmodel.SubjectDetailViewModel" />
+
+    </data>
+    <RelativeLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+     <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/txtLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="120dp">
+                <TextView
+                    android:id="@+id/txtSubName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="Mathematics"
+                    android:textStyle="bold"
+                    android:textColor="@color/bg_edlogin_line"
+                    android:fontFamily="@font/montserrat_regular"/>
+                <TextView
+                    android:id="@+id/txtTotal_chapter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:textSize="10dp"
+                    android:text="Abc"
+                    android:fontFamily="@font/opensans_regular"
+                    android:textColor="@color/bg_edlogin_line"/>
+            </LinearLayout>
+            <RelativeLayout
+                android:id="@+id/userDetailLayout"
+                android:layout_below="@+id/txtLayout"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="30dp"
+                android:background="#FFA500">
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/userImage"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:layout_centerVertical="true"
+                    android:background="@color/colorAccent"
+                    android:layout_marginLeft="20dp"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/userImage"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="20dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtuserName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="14dp"
+                        android:text="HeyUser"
+                        android:textStyle="bold"
+
+                        android:textColor="@color/bg_edlogin_line"
+                        android:fontFamily="@font/montserrat_regular"/>
+                    <TextView
+                        android:id="@+id/txtUserDesc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:textSize="10dp"
+                        android:text="Start your learning jouney"
+                        android:fontFamily="@font/opensans_regular"
+                        android:textColor="@color/bg_edlogin_line"/>
+
+                </LinearLayout>
+            </RelativeLayout>
+            <RelativeLayout
+                android:id="@+id/SyallabusLayout"
+                android:layout_below="@+id/txtLayout"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/purple_bg">
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="vertical">
+                    <TextView
+                        android:id="@+id/txtSyllabus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="16dp"
+                        android:text="Syllabus"
+                        android:textStyle="bold"
+                        android:textColor="@color/bg_edlogin_line"
+                        android:fontFamily="@font/montserrat_regular"/>
+                    <TextView
+                        android:id="@+id/txtSyllabusSub"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="10dp"
+                        android:text="Syllabus for physics"
+                        android:fontFamily="@font/opensans_regular"
+                        android:textColor="@color/bg_edlogin_line"/>
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/subjectRecylerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:context="com.app.notesculture.view.ui.fragment.SubjectDetailFragment">
+            </android.support.v7.widget.RecyclerView>
+
+        </LinearLayout>
+    </RelativeLayout>
+</layout>

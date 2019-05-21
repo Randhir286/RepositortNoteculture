@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+<data>
+    <variable
+        name="itemClickListener"
+        type="com.app.notesculture.view.ui.infra.CustomClickListener" />
+
+        <variable
+            name="viewModel"
+            type="com.app.notesculture.model.SubjectDetailResponseData" />
+
+
+</data>
+
+<android.support.v7.widget.CardView
+    android:id="@+id/card_view"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="#ffffff"
+    card_view:cardCornerRadius="10dp"
+    card_view:cardElevation="5dp"
+    android:onClick="@{() -> itemClickListener.subCardClicked(viewModel)}"
+    card_view:cardUseCompatPadding="true">
+
+        <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgChapter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/c"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/imgChapter"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txtChapter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@{viewModel.topic_name}"
+                    android:textColor="@color/bg_edlogin_line"
+                    android:textSize="14dp"
+                    android:textStyle="bold"
+                    tools:text="Item Title"/>
+
+                <TextView
+                    android:id="@+id/txtChapterIntro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@{viewModel.topic_title}"
+                    android:textColor="@color/bg_edlogin_line"
+                    android:textSize="9dp" />
+
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatImageView
+                android:id="@+id/imgNextArrow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                app:srcCompat="@drawable/ic_right_arrow"/>
+
+    </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</layout>

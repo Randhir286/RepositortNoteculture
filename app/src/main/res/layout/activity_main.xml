@@ -1,18 +1,147 @@
-<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="@drawable/dashboard_background">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+        <!--
+        include use to reuse the layout 
+        here iclude the toolbar layout
+        -->
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"></include>
+
+        <!-- Framelayout to display Fragments -->
+
+        <FrameLayout
+            android:id="@+id/frame_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/slider"
+        android:layout_width="@dimen/navigation_drawer_width"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@drawable/leftbar_bg">
+
+        <!-- Header view contains profile layout -->
+
+        <RelativeLayout
+            android:id="@+id/header_view"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_icon"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+              />
+            <!-- Linear layout contains username and email id textview -->
+
+            <LinearLayout
+                android:id="@+id/profile_name_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/profile_icon"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <TextView
+                    android:id="@+id/profile_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/user_name"
+                    android:textColor="@color/black"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/profile_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/opensans_regular"
+                    android:text="@string/email"
+                    android:textColor="@color/black"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <!-- user profile image -->
+
+
+        </RelativeLayout>
+
+
+        <!-- List view for navigation drawer item -->
+        <RelativeLayout
+            android:id="@+id/relative_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_view">
+
+
+            <ListView
+                android:id="@+id/list_slidermenu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginBottom="10dp"
+                android:background="@color/white"
+                android:choiceMode="singleChoice"
+                android:divider="@color/grey"
+                android:dividerHeight="1dp"
+                android:listSelector="#dddddd"
+                android:overScrollMode="never"
+                android:scrollbars="none" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relative_share"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative_list"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/navigation_button_gradient"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/img_share"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="-5dp"
+                android:src="@drawable/share" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/img_share"
+                android:padding="10dp"
+                android:text="Share app and Earn Money "
+                android:textColor="@color/white" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.v4.widget.DrawerLayout>
